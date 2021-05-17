@@ -1,6 +1,5 @@
 package com.mood;
 
-import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -10,11 +9,17 @@ public class MoodAnalyserTest {
         if(message.contains(("sad"))) return "SAD";
         else return "HAPPY";
     }
+	
 	@Test
-    public void testMoodAnalysis() {
+    public void TC1() {
 
         String mood = analyseMood("This is a sad message");
-
-        Assert.assertThat(mood, CoreMatchers.is("SAD"));
+        Assert.assertEquals("SAD",mood);
     }
+	@Test
+	public void TC2()
+	{
+		String mood = analyseMood("I am in Any Mood");
+        Assert.assertEquals("HAPPY",mood);
+	}
 }
